@@ -1,11 +1,29 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Библиотека";
 }
 
-<ol>
-    @foreach (var book in ViewBag.Book)
-     {
-        <li>Книга: @book.BookId - Автор: @book.Author - Жанр: @book.Genre</li>
-     }
+<div>
+    <h3><p align="center"><b>Библиотека</b></h3>
+    
 
-</ol>
+    <table>
+        <tr>
+            <td><p>Назвыание</p></td>
+            <td><p><blockquote>Автор</blockquote></p></td>
+            <td><p>Жанр</p></td>
+            <td></td>
+        </tr>
+
+
+        @foreach (var books in ViewBag.Books)
+        {
+            <tr>
+                <td><p>@books.BookId</p></td>
+                <td><p><blockquote> @books.Author</blockquote></p></td>
+                <td><p> @books.Genre</p></td>
+                <td><p><a href="/Home/Reserve/@books.BookId">Зарезервировать</a></p></td>
+            </tr>
+        }
+
+    </table>
+</div>

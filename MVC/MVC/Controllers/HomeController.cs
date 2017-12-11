@@ -9,25 +9,18 @@ namespace MVC.Controllers
 {
     public class HomeController : Controller
     {
+        LibraryEntities db = new LibraryEntities();
         public ActionResult Index()
-        {
-            LibraryEntities bd = new LibraryEntities();
-            ViewBag.Book = bd.Book;
-
+        {        
+            ViewBag.Books = db.Book;
             return View();
         }
 
-        public ActionResult About()
+
+
+        public ActionResult Reserve()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.Books = db.Book;
             return View();
         }
     }
