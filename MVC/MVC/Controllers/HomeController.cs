@@ -16,11 +16,15 @@ namespace MVC.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
 
-
+        //[Authorize (Users = "user")]
         public ActionResult Reserve()
         {
-            ViewBag.Books = db.Book;
+            //ViewBag.Books = db.Book;
             return View();
         }
     }

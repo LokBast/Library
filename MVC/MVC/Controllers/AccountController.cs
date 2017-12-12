@@ -9,39 +9,35 @@ namespace MVC.Controllers
 {
     public class AccountController : Controller
     {
-        public ActionResult Register()
+        public ActionResult LogOn()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Register(LibraryEntities accout)
+        public ActionResult LogOn(LibraryEntities model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                using (OurDbContext db = new OurDbContext())
+                if (true)
                 {
-                    db.userAccount.Add(accout);
-                    db.SaveChanges();
+
+                    if (Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
-                ModelState.Clear();
-                ViewBag.Message = "Okay";
+                else
+                {
+                    ModelState.AddModelError("", "The user name or password is incorrect.");
+                }
             }
-            return View();
-        }
-        //Login
-        public ActionResult Login()
-        {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Login(LibraryEntities user)
-        {
-            using (OurDbContext db = new OurDbContext())
-            {
-                var usr = db.userAccount.Single()
-            }
-        }
     }
 }

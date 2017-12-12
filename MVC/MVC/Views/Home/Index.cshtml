@@ -8,7 +8,7 @@
 
     <table>
         <tr>
-            <td><p>Назвыание</p></td>
+            <td><p>Название</p></td>
             <td><p><blockquote>Автор</blockquote></p></td>
             <td><p>Жанр</p></td>
             <td></td>
@@ -21,7 +21,7 @@
                 <td><p>@books.BookId</p></td>
                 <td><p><blockquote> @books.Author</blockquote></p></td>
                 <td><p> @books.Genre</p></td>
-                <td><p><a href="/Home/Reserve/@books.BookId">Зарезервировать</a></p></td>
+                <td><p><li>@Html.ActionLink("Зарезервировать", "Reserve", "Home")</li></p></td>
             </tr>
         }
 
