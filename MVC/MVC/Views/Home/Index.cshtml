@@ -13,17 +13,23 @@
             <td><p>Жанр</p></td>
             <td></td>
         </tr>
-
-
+        
+        <tr>
+            <td><p>@Html.TextBox("bookId")</p></td>
+            <td><p><blockquote>@Html.TextBox("AuthorTB")</blockquote></p></td>
+            <td><p>@Html.TextBox("GenreTB")</p></td>
+            <td><p><input type="submit" value="Фильтр" class="btn btn-default" /></p></td>
+        </tr>
+        
         @foreach (var books in ViewBag.Books)
-        {
+         {
             <tr>
                 <td><p>@books.BookId</p></td>
                 <td><p><blockquote> @books.Author</blockquote></p></td>
                 <td><p> @books.Genre</p></td>
-                <td><p><li>@Html.ActionLink("Зарезервировать", "Reserve", "Home")</li></p></td>
+                <td><p>@Html.ActionLink("Зарезервировать", "Reserve", "Home")</p></td>
             </tr>
-        }
+         }
 
     </table>
 </div>
